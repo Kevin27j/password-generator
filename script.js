@@ -98,6 +98,32 @@ let confirmNumber = confirm("Include numbers?");
 
 // Function to prompt user for password options
 function getPasswordOptions() {
+  // VALIDATE PASSWORD LENGTH
+    // if (getPasswordLength < 10 || getPasswordLength > 64) {
+    //   return getPasswordLength;
+    // } else {
+    //   return ERROR MESSAGE;
+    // }
+
+  // VALIDATE LOWERCASE LETTERS
+    // if(confirmLowerCase === true){
+    //   include Lowercase letters
+    // }
+
+  // VALIDATE UPPERCASE LETTERS
+    // if(confirmUpperCase === true){
+    //   include Uppercase letters
+    // }
+
+  // VALIDATE SPECIAL LETTERS
+    // if(confirmSpecial === true){
+    //   include Special letters
+    // }
+
+  // VALIDATE NUMBERS
+    // if(confirmNumber === true){
+    //   include Numbers
+    // }
 
 }
 
