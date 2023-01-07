@@ -88,53 +88,72 @@ var upperCasedCharacters = [
   'Z'
 ];
 
-// GET PROMPTS INTO GLOBAL VARIABLES
-
-let getPasswordLength = prompt("Length of password :");
-let confirmLowerCase = confirm("Include lower case letters?");
-let confirmUpperCase = confirm("Include upper case letters?");
-let confirmSpecial = confirm("Include special characters?");
-let confirmNumber = confirm("Include numbers?");
 
 // Function to prompt user for password options
 function getPasswordOptions() {
+  // GET PROMPTS INTO GLOBAL VARIABLES
+  let getPasswordLength = prompt("Length of password :");
+
   // VALIDATE PASSWORD LENGTH
-    // if (getPasswordLength < 10 || getPasswordLength > 64) {
-    //   return getPasswordLength;
-    // } else {
-    //   return ERROR MESSAGE;
-    // }
+  if (getPasswordLength < 10 || getPasswordLength > 64) {
+    // getPasswordLength FALSE;
+    // return ERROR MESSAGE;
+    alert("Enter password between 10 and 64 characters");
 
-  // VALIDATE LOWERCASE LETTERS
-    // if(confirmLowerCase === true){
-    //   include Lowercase letters
-    // }
 
-  // VALIDATE UPPERCASE LETTERS
-    // if(confirmUpperCase === true){
-    //   include Uppercase letters
-    // }
+  } else {
+    // getPasswordLength TRUE;
+    let confirmLowerCase = confirm("Include lower case letters?");
+    let confirmUpperCase = confirm("Include upper case letters?");
+    let confirmSpecial = confirm("Include special characters?");
+    let confirmNumber = confirm("Include numbers?");
+  
+    // VALIDATE LOWERCASE LETTERS
+    if (confirmLowerCase) {
+      // Include LowerCase
+      getRandom(lowerCasedCharacters);
+  
+    } else {
 
-  // VALIDATE SPECIAL LETTERS
-    // if(confirmSpecial === true){
-    //   include Special letters
-    // }
+    }
 
-  // VALIDATE NUMBERS
-    // if(confirmNumber === true){
-    //   include Numbers
-    // }
+    // VALIDATE UPPERCASE LETTERS
+    if (confirmUpperCase) {
+      // Include UpperCase
+      getRandom(upperCasedCharacters);
+    }
 
+    // VALIDATE SPECIAL LETTERS
+    if (confirmSpecial) {
+      // Include Special
+      getRandom(specialCharacters);
+    }
+    // VALIDATE NUMBERS
+    if (confirmNumber) {
+      // Include Numbers
+      getRandom(numericCharacters);
+    }
+  }
 }
 
 // Function for getting a random element from an array
 function getRandom(arr) {
+  let random = "";
 
+  // GET RANDOM ELEMENT FROM ARRAY AND ASSING IT TO VARIABLE RANDOM
+  random = arr[Math.floor(Math.random() * arr.length)];
+  // console.log(random);
 }
 
 // Function to generate password with user input
 function generatePassword() {
+  let newPassword = "";
 
+  // When GENERATE PASSWORD button is clicked get password options
+  if (generateBtn) {
+    getPasswordOptions()
+    return "Password";
+  }
 }
 
 // Get references to the #generate element
