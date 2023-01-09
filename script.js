@@ -103,56 +103,59 @@ function getPasswordOptions() {
 
   } else {
     // getPasswordLength TRUE;
+
+    // concat all the true validation in new array
+    let newPassword = [];
+
     let confirmLowerCase = confirm("Include lower case letters?");
     let confirmUpperCase = confirm("Include upper case letters?");
     let confirmSpecial = confirm("Include special characters?");
     let confirmNumber = confirm("Include numbers?");
-  
+
     // VALIDATE LOWERCASE LETTERS
+    // if Lower Case option TRUE
     if (confirmLowerCase) {
       // Include LowerCase
-      getRandom(lowerCasedCharacters);
-  
-    } else {
-
+      // newPassword.push(getRandom(lowerCasedCharacters));
+      // Insert getRandom(array) in newPassword array
+      newPassword = newPassword.concat(getRandom(lowerCasedCharacters));
     }
 
     // VALIDATE UPPERCASE LETTERS
     if (confirmUpperCase) {
       // Include UpperCase
-      getRandom(upperCasedCharacters);
+      newPassword = newPassword.concat(getRandom(upperCasedCharacters));
     }
 
     // VALIDATE SPECIAL LETTERS
     if (confirmSpecial) {
       // Include Special
-      getRandom(specialCharacters);
+      newPassword.push(getRandom(specialCharacters));
     }
+
     // VALIDATE NUMBERS
     if (confirmNumber) {
       // Include Numbers
-      getRandom(numericCharacters);
+      newPassword.push(getRandom(numericCharacters));
     }
+    return newPassword.join("");
+
   }
 }
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-  let random = "";
-
+  
   // GET RANDOM ELEMENT FROM ARRAY AND ASSING IT TO VARIABLE RANDOM
-  random = arr[Math.floor(Math.random() * arr.length)];
-  // console.log(random);
+  return arr[Math.floor(Math.random() * arr.length)];
 }
 
 // Function to generate password with user input
 function generatePassword() {
-  let newPassword = "";
 
   // When GENERATE PASSWORD button is clicked get password options
   if (generateBtn) {
-    getPasswordOptions()
-    return "Password";
+    return getPasswordOptions();
   }
 }
 
