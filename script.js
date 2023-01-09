@@ -93,6 +93,7 @@ var upperCasedCharacters = [
 function getPasswordOptions() {
   // GET PROMPTS INTO GLOBAL VARIABLES
   let getPasswordLength = prompt("Length of password :");
+  console.log(getPasswordLength);
 
   // VALIDATE PASSWORD LENGTH
   if (getPasswordLength < 10 || getPasswordLength > 64) {
@@ -116,8 +117,7 @@ function getPasswordOptions() {
     // if Lower Case option TRUE
     if (confirmLowerCase) {
       // Include LowerCase
-      // newPassword.push(getRandom(lowerCasedCharacters));
-      // Insert getRandom(array) in newPassword array
+      // Push getRandom(array) in newPassword array
       newPassword = newPassword.concat(getRandom(lowerCasedCharacters));
     }
 
@@ -130,22 +130,37 @@ function getPasswordOptions() {
     // VALIDATE SPECIAL LETTERS
     if (confirmSpecial) {
       // Include Special
-      newPassword.push(getRandom(specialCharacters));
+      newPassword = newPassword.concat(getRandom(specialCharacters));
     }
 
     // VALIDATE NUMBERS
     if (confirmNumber) {
       // Include Numbers
-      newPassword.push(getRandom(numericCharacters));
+      newPassword = newPassword.concat(getRandom(numericCharacters));
     }
-    return newPassword.join("");
+
+    let newLengthPass = "";
+    for (let i = 0; i < getPasswordLength.length; i++){
+      // newLengthPass += 
+    }
+
+    for (let i = newPassword.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1));
+      let temp = newPassword[i];
+      newPassword[i] = newPassword[j];
+      newPassword[j] = temp;
+  }
+
+    newPassword = newPassword.join("");
+
+    return newPassword;
 
   }
 }
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-  
+
   // GET RANDOM ELEMENT FROM ARRAY AND ASSING IT TO VARIABLE RANDOM
   return arr[Math.floor(Math.random() * arr.length)];
 }
