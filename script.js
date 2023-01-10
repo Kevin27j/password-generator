@@ -91,7 +91,7 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-  // GET PROMPTS INTO GLOBAL VARIABLES
+  // GET PROMPTS INTO VARIABLES
   let getPasswordLength = prompt("Length of password :");
   console.log(getPasswordLength);
 
@@ -168,8 +168,6 @@ function getPasswordOptions() {
     // Make password same length as user prompt
     // for (let i = 0; i < getPasswordLength; i++) {
     //   console.log(getPasswordLength);
-    //   newPassword.length += getPasswordLength;
-
     // }
 
     return newPassword;
