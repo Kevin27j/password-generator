@@ -118,40 +118,59 @@ function getPasswordOptions() {
     if (confirmLowerCase) {
       // Include LowerCase
       // Push getRandom(array) in newPassword array
-      newPassword = newPassword.concat(getRandom(lowerCasedCharacters));
+      for (let i = 0; i < getPasswordLength / 4; i++) {
+        // console.log(getPasswordLength);
+        newPassword = newPassword.concat(getRandom(lowerCasedCharacters));
+      }
     }
 
     // VALIDATE UPPERCASE LETTERS
     if (confirmUpperCase) {
       // Include UpperCase
-      newPassword = newPassword.concat(getRandom(upperCasedCharacters));
+      for (let i = 0; i < getPasswordLength / 4; i++) {
+        // console.log(getPasswordLength);
+        newPassword = newPassword.concat(getRandom(upperCasedCharacters));
+      }
     }
+
 
     // VALIDATE SPECIAL LETTERS
     if (confirmSpecial) {
       // Include Special
-      newPassword = newPassword.concat(getRandom(specialCharacters));
+      for (let i = 0; i < getPasswordLength / 4; i++) {
+        // console.log(getPasswordLength);
+        newPassword = newPassword.concat(getRandom(specialCharacters));
+      }
     }
+
 
     // VALIDATE NUMBERS
     if (confirmNumber) {
       // Include Numbers
-      newPassword = newPassword.concat(getRandom(numericCharacters));
+      for (let i = 0; i < getPasswordLength / 4; i++) {
+        // console.log(getPasswordLength);
+        newPassword = newPassword.concat(getRandom(numericCharacters));
+      }
     }
 
-    let newLengthPass = "";
-    for (let i = 0; i < getPasswordLength.length; i++){
-      // newLengthPass += 
-    }
 
+    // Shuffle characters in new array
     for (let i = newPassword.length - 1; i > 0; i--) {
       let j = Math.floor(Math.random() * (i + 1));
       let temp = newPassword[i];
       newPassword[i] = newPassword[j];
       newPassword[j] = temp;
-  }
+    }
 
+    // Turn new password into a string
     newPassword = newPassword.join("");
+
+    // Make password same length as user prompt
+    // for (let i = 0; i < getPasswordLength; i++) {
+    //   console.log(getPasswordLength);
+    //   newPassword.length += getPasswordLength;
+
+    // }
 
     return newPassword;
 
@@ -168,7 +187,7 @@ function getRandom(arr) {
 // Function to generate password with user input
 function generatePassword() {
 
-  // When GENERATE PASSWORD button is clicked get password options
+  // When GENERATE PASSWORD button is clicked call password options and return new password
   if (generateBtn) {
     return getPasswordOptions();
   }
