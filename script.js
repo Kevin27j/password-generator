@@ -94,7 +94,7 @@ let getPasswordLength = 0;
 function getPasswordOptions() {
   // GET PROMPTS INTO VARIABLES
   getPasswordLength = prompt("Length of password :");
-  console.log(getPasswordLength);
+  // console.log(getPasswordLength); //TEST
 
   // VALIDATE PASSWORD LENGTH
   if (getPasswordLength < 10 || getPasswordLength > 64) {
@@ -196,7 +196,7 @@ function writePassword() {
 
   password = password.slice(0, getPasswordLength);
 
-  console.log(password.length);
+  // console.log(password.length); //TEST
 
   passwordText.value = password;
 }
