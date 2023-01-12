@@ -88,12 +88,13 @@ var upperCasedCharacters = [
   'Z'
 ];
 
+let getPasswordLength = 0;
 
 // Function to prompt user for password options
 function getPasswordOptions() {
   // GET PROMPTS INTO VARIABLES
-  let getPasswordLength = prompt("Length of password :");
-  console.log(getPasswordLength);
+  getPasswordLength = prompt("Length of password :");
+  // console.log("input password length : " + getPasswordLength); 
 
   // VALIDATE PASSWORD LENGTH
   if (getPasswordLength < 10 || getPasswordLength > 64) {
@@ -118,7 +119,7 @@ function getPasswordOptions() {
     if (confirmLowerCase) {
       // Include LowerCase
       // Push getRandom(array) in newPassword array
-      for (let i = 0; i < getPasswordLength / 4; i++) {
+      for (let i = 0; i < getPasswordLength; i++) {
         // console.log(getPasswordLength);
         newPassword = newPassword.concat(getRandom(lowerCasedCharacters));
       }
@@ -127,7 +128,7 @@ function getPasswordOptions() {
     // VALIDATE UPPERCASE LETTERS
     if (confirmUpperCase) {
       // Include UpperCase
-      for (let i = 0; i < getPasswordLength / 4; i++) {
+      for (let i = 0; i < getPasswordLength; i++) {
         // console.log(getPasswordLength);
         newPassword = newPassword.concat(getRandom(upperCasedCharacters));
       }
@@ -137,7 +138,7 @@ function getPasswordOptions() {
     // VALIDATE SPECIAL LETTERS
     if (confirmSpecial) {
       // Include Special
-      for (let i = 0; i < getPasswordLength / 4; i++) {
+      for (let i = 0; i < getPasswordLength; i++) {
         // console.log(getPasswordLength);
         newPassword = newPassword.concat(getRandom(specialCharacters));
       }
@@ -147,7 +148,7 @@ function getPasswordOptions() {
     // VALIDATE NUMBERS
     if (confirmNumber) {
       // Include Numbers
-      for (let i = 0; i < getPasswordLength / 4; i++) {
+      for (let i = 0; i < getPasswordLength; i++) {
         // console.log(getPasswordLength);
         newPassword = newPassword.concat(getRandom(numericCharacters));
       }
@@ -164,11 +165,6 @@ function getPasswordOptions() {
 
     // Turn new password into a string
     newPassword = newPassword.join("");
-
-    // Make password same length as user prompt
-    // for (let i = 0; i < getPasswordLength; i++) {
-    //   console.log(getPasswordLength);
-    // }
 
     return newPassword;
 
@@ -198,6 +194,11 @@ var generateBtn = document.querySelector('#generate');
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector('#password');
+
+  password = password.slice(0, getPasswordLength);
+
+  // console.log("password: " + password);
+  // console.log("password length: " + password.length);
 
   passwordText.value = password;
 }
