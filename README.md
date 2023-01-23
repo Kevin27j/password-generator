@@ -14,9 +14,9 @@ A password Generator App that allows to generate any random password between 10 
 
 ## Screenshot
 
-![Layout](/screenshots/Screenshot%202023-01-10%20at%2023.17.56.png)
+![Layout](assets/screenshots/Screenshot%202023-01-10%20at%2023.17.56.png)
 
-![Layout w/ password](/screenshots/Screenshot%202023-01-10%20at%2023.18.18.png)
+![Layout w/ password](assets/screenshots/Screenshot%202023-01-10%20at%2023.18.18.png)
 
 ## Links
 
